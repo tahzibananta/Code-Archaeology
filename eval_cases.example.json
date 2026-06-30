@@ -1,0 +1,14 @@
+[
+  {
+    "question": "Why was retry logic added to the HTTP adapter?",
+    "ground_truth_rationale": "A user reported in an issue that transient DNS failures on flaky networks were causing requests to fail outright with no recovery option; the maintainers added configurable retry behavior so callers could opt into automatic retries on connection errors.",
+    "ground_truth_source": "PR #4821",
+    "notes": "Verified by reading the linked issue and PR description directly."
+  },
+  {
+    "question": "Why does the config parser validate input twice?",
+    "ground_truth_rationale": "The first validation pass was added early for basic type-checking; a later security review found that malformed nested structures could bypass the first pass, so a second, stricter validation step was added rather than rewriting the first.",
+    "ground_truth_source": "issue #3190",
+    "notes": "Good test case because the rationale spans two separate commits months apart."
+  }
+]
